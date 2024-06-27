@@ -16,7 +16,6 @@ public class Application {
 
       Restaurant restaurant2 = new Restaurant("Trattoria", 10);
       addRestaurant(restaurantsMap, restaurant2);
-      printMap(restaurantsMap);
 
       Restaurant restaurant3 = new Restaurant("Wok", 25);
       addRestaurant(restaurantsMap, restaurant3);
@@ -43,6 +42,7 @@ public class Application {
     }
     public static void addRestaurant(HashMap<Integer, Restaurant> restaurantsMap, Restaurant restaurant) {
       Boolean isSame = checkIsSame(restaurantsMap, restaurant);
+      //Poner el nombre y decir que las puntuaciones son iguales
       if(!isSame){
           keyCounter++;
           restaurantsMap.put(keyCounter, restaurant);

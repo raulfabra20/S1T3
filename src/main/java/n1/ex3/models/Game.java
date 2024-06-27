@@ -69,6 +69,7 @@ public class Game {
             String capitalAnswer = sc.nextLine();
             boolean isCorrect = checkAnswer(countryList, capitalAnswer);
             if(isCorrect){
+                System.out.println("Congratulations! You got 1 point!");
                 points++;
                 i++;
             } else {

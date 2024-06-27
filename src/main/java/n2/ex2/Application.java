@@ -7,7 +7,7 @@ import java.lang.*;
 import java.util.Map.Entry;
 
 public class Application {
-
+//-Cambiar el método printSortedRestaurants para que solo haga un return.
     private static int keyCounter = 0;
 
     public static void testApp() {
@@ -45,8 +45,7 @@ public class Application {
         Restaurant restaurant9 = new Restaurant("Wok", 9);
         addRestaurant(restaurantsMap, restaurant9);
 
-        //Print the map to check how is sorted.
-        printMap(restaurantsMap);
+
 
         //Method that sorts the restaurants from the Map and prints it.
         printSortedRestaurants(restaurantsMap);
@@ -88,13 +87,14 @@ public class Application {
         List<Map.Entry<Integer, Restaurant>> entries = new ArrayList<>(restaurantsMap.entrySet());
 
         Collections.sort(entries, new Comparator<Map.Entry<Integer, Restaurant>>() {
+       //No puede haber más de un return en cada método.
 
-            public int compare(Map.Entry<Integer, Restaurant> entry1, Map.Entry<Integer, Restaurant> entry2) {
-                int nameCompare = entry1.getValue().getName().compareTo(entry2.getValue().getName());
-                if (nameCompare == 0) {
-                    return Integer.compare(entry1.getValue().getScore(), entry2.getValue().getScore());
+         public int compare(Map.Entry<Integer, Restaurant> entry1, Map.Entry<Integer, Restaurant> entry2) {
+             int comparison = entry1.getValue().getName().compareTo(entry2.getValue().getName());
+                if (comparison == 0) {
+                    comparison = Integer.compare(entry1.getValue().getScore(), entry2.getValue().getScore());
                 }
-                return nameCompare;
+             return comparison;
             }
         });
 
